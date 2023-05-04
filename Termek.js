@@ -2,7 +2,7 @@ class Termek {
   #allapot;
   constructor(id, szuloElem) {
     this.id = id;
-    szuloElem.append(`<div class ="elem">
+    szuloElem.html(`<div class ="elem">
         <p></p>
         <p></p>
         <p></p>
@@ -12,10 +12,7 @@ class Termek {
     this.hELEM = this.elem.children("button");
     this.#allapot = true;
     this.elem.on("click", () => {
-      if (this.#allapot == true) {
-        this.esemenyTrigger();
-      }
-      this.#allapot = false;
+        /*Kedvenlistába ide*/
     });
   }
   setElem(ertek) {
