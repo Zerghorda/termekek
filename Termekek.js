@@ -1,19 +1,18 @@
 import Adatok from "./adatok.js";
 import Termek from "./Termek.js";
 class Termekek {
+  #kedvencek = [];
   constructor() {
+    console.log(Adatok);
     const szuloElem = $("article");
-    for (let index = 0; index < 9; index++) {
-      const elem = new Adatok(index, szuloElem);
+    for (let index = 0; index < Adatok.length; index++) {
+      const elem = new Termek(Adatok[index], szuloElem);
     }
     $(window).on("elemKattintas", (event) => {
-      if (szam % 2 == 0) {
-        event.detail.setElem("X");
-      } else {
-        event.detail.setElem("O");
-      }
-      szam++;
+      this.#kedvencek.push(event.detail);
+      console.log(this.#kedvencek);
     });
   }
 }
+
 export default Termekek;

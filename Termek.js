@@ -1,25 +1,29 @@
 class Termek {
-  #allapot;
-  constructor(id, szuloElem) {
-    this.id = id;
-    szuloElem.html(`<div class ="elem">
-        <p></p>
-        <p></p>
-        <p></p>
-        <button></button>
+
+  #adat;
+  #divElem;
+  #buttonElem;
+  constructor(adat, szuloElem) {
+    console.log(adat);
+    this.#adat = adat;
+    szuloElem.append(`<div class ="elem">
+        <p>${this.#adat.termek}</p>
+        <p>${this.#adat.kor}</p>
+        <p>${this.#adat.szin}</p>
+        <button>Kedvenc</button>
         </div>`);
-    this.elem = $("article div:last-child");
-    this.hELEM = this.elem.children("button");
-    this.#allapot = true;
-    this.elem.on("click", () => {
-        /*Kedvenlistába ide*/
+    this.#divElem = $("article div:last-child");
+    this.#buttonElem = this.#divElem.children("button");
+    this.#buttonElem.on("click", () => {
+      this.esemenyTrigger();
+      console.log("");
     });
   }
-  setElem(ertek) {
-    this.hELEM.html(ertek);
+  setElem(adat) {
+    this.#buttonElem.html(adat);
   }
   esemenyTrigger() {
-    const esemeny = new CustomEvent("elemKattintas", { detail: this });
+    const esemeny = new CustomEvent("elemKattintas", { detail: this.#adat.id });
     window.dispatchEvent(esemeny);
   }
 }
