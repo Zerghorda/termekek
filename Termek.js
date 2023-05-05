@@ -1,5 +1,4 @@
 class Termek {
-
   #adat;
   #divElem;
   #buttonElem;
@@ -10,10 +9,12 @@ class Termek {
         <p>${this.#adat.termek}</p>
         <p>${this.#adat.kor}</p>
         <p>${this.#adat.szin}</p>
-        <button>Kedvenc</button>
+        <button class ="k">Kedvenc</button>
+        <button class ="t">Töröl</button>
         </div>`);
     this.#divElem = $("article div:last-child");
-    this.#buttonElem = this.#divElem.children("button");
+    this.#kedvenc = this.#divElem.children(".k");
+    this.#torol = this.#divElem.children(".t");
     this.#buttonElem.on("click", () => {
       this.esemenyTrigger();
       console.log("");
